@@ -5,10 +5,15 @@ class ZipcodesSaturdayMailer < ApplicationMailer
   #
   #   en.zipcodes_saturday_mailer.send_report.subject
   #
-  def send_report(zipcode)
-    puts "report sent"
-    @greeting = "Hi"
-
-    mail to: "abc@123.com"
+  # def send_report(report)
+  def send_report(zipcodes_with_saturday_enabled, zipcodes_with_saturday_disabled)
+    email = "abc@123.com"    
+    @greeting = "Hi, here is the weekly report"
+    # @report = report
+    @zipcodes_with_saturday_enabled = zipcodes_with_saturday_enabled
+    @zipcodes_with_saturday_disabled = zipcodes_with_saturday_disabled
+    mail(to: email, subject: 'Saturday Zipcodes Report')
+    puts "Report sent to #{email}"
   end
+
 end
