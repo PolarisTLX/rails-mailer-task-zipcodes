@@ -5,7 +5,6 @@ class ZipcodesSaturdayMailer < ApplicationMailer
   #
   #   en.zipcodes_saturday_mailer.send_report.subject
   #
-  # def send_report(report)
   def send_report(zipcodes_with_saturday_enabled, zipcodes_with_saturday_disabled)
     email = "abc@123.com"    
     @greeting = "Hi, here is the weekly report"
@@ -16,6 +15,14 @@ class ZipcodesSaturdayMailer < ApplicationMailer
     @disabled_count = zipcodes_with_saturday_disabled.count
     mail(to: email, subject: 'Saturday Zipcodes Report')
     puts "Report sent to #{email}"
+  end
+
+  def send_special_report(zipcode)
+    email = "abc@123.com"    
+    @greeting = "Hi, a special interest zipcode has become active for Saturday Delivery"
+    @special_zipcode = zipcode.code
+    mail(to: email, subject: 'Special Interest Zipcode has become Active')
+    puts "Special Report for zipcode #{@special_zipcode} sent to #{email}"
   end
 
 end

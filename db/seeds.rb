@@ -13,5 +13,5 @@ zipcodes = Zipcode.create([
   { code: '98001', saturday_enabled: false, city: "Toronto" }, 
   { code: '93725', saturday_enabled: false, city: "Toronto" }, 
   { code: '80238', saturday_enabled: false, city: "Toronto" }, 
-  { code: '17339', saturday_enabled: false, city: "Toronto" } 
+  { code: '17339', saturday_enabled: true, city: "Toronto" } 
 ])
