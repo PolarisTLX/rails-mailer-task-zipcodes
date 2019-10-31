@@ -6,27 +6,21 @@ require 'rails_helper'
 RSpec.describe SendZipcodesSaturdayReportJob, type: :job do
   # let(:zipcodes) { FactoryBot.create_list(:zipcode, 5) }
 
-  allzipcodes = Zipcode.all
-  # puts ">>>>> #{allzipcodes}"
-  # puts ">>>>> Zipcode.first #{Zipcode.first}"
+  # allzipcodes = Zipcode.all
 
-  # report = []
-  zipcodes_with_saturday_enabled = []
-  zipcodes_with_saturday_disabled = []
-  allzipcodes.each do |zipcode|
-    puts ">> Zipcode: #{zipcode.code} - Saturday_enabled?: #{zipcode.saturday_enabled}"
+  # zipcodes_with_saturday_enabled = []
+  # zipcodes_with_saturday_disabled = []
+  # allzipcodes.each do |zipcode|
+  #   puts ">> Zipcode: #{zipcode.code} - Saturday_enabled?: #{zipcode.saturday_enabled}"
+  #   entry = { zipcode: zipcode.code, Saturday_enabled?: zipcode.saturday_enabled, city: zipcode.city }
+  #   zipcodes_with_saturday_enabled << entry if zipcode.saturday_enabled 
+  #   zipcodes_with_saturday_disabled << entry if !zipcode.saturday_enabled 
+  # end
 
-    # report << { zipcode: zipcode.code, Saturday_enabled?: zipcode.saturday_enabled, city: zipcode.city }
-    entry = { zipcode: zipcode.code, Saturday_enabled?: zipcode.saturday_enabled, city: zipcode.city }
-    zipcodes_with_saturday_enabled << entry if zipcode.saturday_enabled 
-    zipcodes_with_saturday_disabled << entry if !zipcode.saturday_enabled 
-      # ?  
-      # : zipcodes_with_saturday_disabled << entry
-  end
-
-  # puts "report: #{report}"
-  puts "zipcodes_with_saturday_enabled: #{zipcodes_with_saturday_enabled}"
-  puts "zipcodes_with_saturday_disabled: #{zipcodes_with_saturday_disabled}"
+  # puts "zipcodes_with_saturday_enabled: #{zipcodes_with_saturday_enabled}"
+  # puts "enabled count: #{zipcodes_with_saturday_enabled.count}"
+  # puts "zipcodes_with_saturday_disabled: #{zipcodes_with_saturday_disabled}"
+  # puts "disabled count: #{zipcodes_with_saturday_disabled.count}"
  
 
   before do
@@ -42,7 +36,8 @@ RSpec.describe SendZipcodesSaturdayReportJob, type: :job do
   it "sends email with report on which zipcodes are enable for Saturday delivery" do
     # SendZipcodesSaturdayReportJob.perform_now(zipcodes)
     # SendZipcodesSaturdayReportJob.perform_now(report)
-    SendZipcodesSaturdayReportJob.perform_now(zipcodes_with_saturday_enabled, zipcodes_with_saturday_disabled)
+    # SendZipcodesSaturdayReportJob.perform_now(zipcodes_with_saturday_enabled, zipcodes_with_saturday_disabled)
+    SendZipcodesSaturdayReportJob.perform_now
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 

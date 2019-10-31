@@ -2,7 +2,12 @@ ZipcodesSaturday#send_report
 
 <%= @greeting %>, find me in app/views/zipcodes_saturday_mailer/send_report.text.erb
 
+Number of zipcodes with Saturday delivery ENABLED: <%= @enabled_count %>
+
 zipcodes_with_saturday_enabled:
 <%= @zipcodes_with_saturday_enabled %>
+
+Number of zipcodes with Saturday delivery DISABLED: <%= @disabled_count %>
+
 zipcodes_with_saturday_disabled:
 <%= @zipcodes_with_saturday_disabled %>

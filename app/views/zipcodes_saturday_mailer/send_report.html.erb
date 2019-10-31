@@ -1,17 +1,11 @@
 <h1>ZipcodesSaturday#send_report</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/zipcodes_saturday_mailer/send_report.html.erb
-</p>
-<h1>
-  zipcodes_with_saturday_enabled:
-</h1>
-<p>
-<%= @zipcodes_with_saturday_enabled %>
-</p>
-<h1>
-  zipcodes_with_saturday_disabled:
-</h1>
-<p>
-<%= @zipcodes_with_saturday_disabled %>
-</p>
+<p> <%= @greeting %>, find me in app/views/zipcodes_saturday_mailer/send_report.html.erb </p>
+
+<p> Number of zipcodes with Saturday delivery ENABLED: <%= @enabled_count %> </p>
+<h1> zipcodes_with_saturday_enabled: </h1>
+<p> <%= @zipcodes_with_saturday_enabled %> </p>
+
+<p> Number of zipcodes with Saturday delivery DISABLED: <%= @enabled_count %> </p>
+<h1>  zipcodes_with_saturday_disabled: </h1>
+<p> <%= @zipcodes_with_saturday_disabled %> </p>

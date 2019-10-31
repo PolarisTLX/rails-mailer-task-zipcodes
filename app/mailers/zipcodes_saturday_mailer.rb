@@ -12,6 +12,8 @@ class ZipcodesSaturdayMailer < ApplicationMailer
     # @report = report
     @zipcodes_with_saturday_enabled = zipcodes_with_saturday_enabled
     @zipcodes_with_saturday_disabled = zipcodes_with_saturday_disabled
+    @enabled_count = zipcodes_with_saturday_enabled.count
+    @disabled_count = zipcodes_with_saturday_disabled.count
     mail(to: email, subject: 'Saturday Zipcodes Report')
     puts "Report sent to #{email}"
   end
