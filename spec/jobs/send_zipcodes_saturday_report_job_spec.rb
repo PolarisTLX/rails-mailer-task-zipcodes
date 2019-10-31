@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SendFromTheBridgeNewsletterJob, type: :job do
+RSpec.describe SendZipcodesSaturdayReportJob, type: :job do
   let(:zipcodes) { FactoryBot.create_list(:zipcode, 5) }
 
   before do
@@ -12,7 +12,7 @@ RSpec.describe SendFromTheBridgeNewsletterJob, type: :job do
   end
 
   it "sends email with report on which zipcodes are enable for Saturday delivery" do
-    SendFromTheBridgeNewsletterJob.perform_now(zipcodes)
+    SendZipcodesSaturdayReportJob.perform_now(zipcodes)
     expect(ActionMailer::Base.deliveries.count).to eq(5)
   end
 

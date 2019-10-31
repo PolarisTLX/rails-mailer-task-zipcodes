@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "newsletters:from_the_bridge" do
+RSpec.describe "reports:zipcodessaturday" do
 
   # start by clearing out any active job:
   before do

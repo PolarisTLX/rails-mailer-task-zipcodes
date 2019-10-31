@@ -1,7 +1,7 @@
 namespace :newsletters do
-  desc "Send weekly newsleter rom the Captain"
-  task from_the_bridge: :environment do
-    SendFromTheBridgeNewsletterJob.perform_later
+  desc "Send weekly newsleter from the Captain"
+  task zipcodessaturday: :environment do
+    SendZipcodesSaturdayNewsletterJob.perform_later
   end
 
 end
