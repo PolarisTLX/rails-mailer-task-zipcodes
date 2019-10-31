@@ -6,6 +6,7 @@ class ZipcodesSaturdayMailer < ApplicationMailer
   #   en.zipcodes_saturday_mailer.send_report.subject
   #
   def send_report(zipcode)
+    puts "report sent"
     @greeting = "Hi"
 
     mail to: "abc@123.com"

@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_10_31_153216) do
 
   create_table "zipcodes", force: :cascade do |t|
+    t.string "code"
     t.boolean "saturday_enabled"
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
